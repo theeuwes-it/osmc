@@ -132,6 +132,7 @@ function build_in_env()
 	test $DEP == vero364 && DEP="aarch64"
 	test $DEP == rbp4 && DEP="armv7"
 	test $DEP == rbp464 && DEP="aarch64"
+	test $DEP == rbp5 && DEP="aarch64"
 	test $DEP == rbp1 && DEP="armv6l"
 	test $DEP == atv && DEP="i386"
 	test $DEP == pc && DEP="amd64"
@@ -252,7 +253,7 @@ function dpkg_build()
 	sed '/^Installed-Size/d' -i "$1/DEBIAN/control"
 	size=$(du -s --apparent-size "$1" | awk '{print $1}')
 	echo "Installed-Size: $size" >> "$1/DEBIAN/control"
-	dpkg -b "$1" "$2"
+	sudo dpkg -b "$1" "$2"
 }
 
 export -f fix_arch_ctl

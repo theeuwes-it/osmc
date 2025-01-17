@@ -19,7 +19,7 @@ verify_action
 packages="debootstrap
 dh-make
 devscripts
-qemu
+qemu-system-arm
 binfmt-support
 qemu-user-static"
 for package in $packages
